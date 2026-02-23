@@ -14,6 +14,16 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite', // Animasi gambar naik turun
+        'pulse-slow': 'pulse 4s cubic-bezier(1.4, 1, 1.6, 2) infinite', // Animasi shadow berkedip pelan
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0) rotate(15deg)' }, // Pastikan rotasi tetap ada
+          '50%': { transform: 'translateY(-20px) rotate(15deg)' }, // Bergerak ke atas 20px
+        }
       }
     },
   },

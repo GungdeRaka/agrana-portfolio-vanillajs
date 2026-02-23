@@ -4,7 +4,7 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(to right, #5465FF, #480CA8);
+    background: linear-gradient(to right, #5465FF, #BFD9FF);
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
