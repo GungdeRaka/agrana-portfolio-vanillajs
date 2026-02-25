@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "agrana-digital",
+    "staging": "agrana-a7143"
+  },
+  "targets": {},
+  "etags": {}
+}

@@ -20,7 +20,7 @@ if (btn && menu) {
 }
 
 const typewriterElement = document.getElementById('typewriter');
-const words = ["Profesional", "Estetik", "SEO Friendly", "Modern", "Cepat"];
+const words = ["Kecantikan", "Travel", "Property", "Restaurant", "Kesehatan", "Otomotif", "Fashion", "E-commerce"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
