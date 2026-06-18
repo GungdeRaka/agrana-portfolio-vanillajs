@@ -89,7 +89,7 @@ function initCarousel() {
 
     const startAutoPlay = () => {
         clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 800); // Ganti slide setiap 0.8 detik
+        slideInterval = setInterval(nextSlide, 1000); // Ganti slide setiap 0.8 detik
     };
 
     const stopAutoPlay = () => {
