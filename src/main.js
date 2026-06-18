@@ -44,7 +44,7 @@ if (btn && menu) {
 }
 
 const typewriterElement = document.getElementById('typewriter');
-const words = ["Kecantikan", "Travel", "Property", "Restaurant", "Kesehatan", "Otomotif", "Fashion", "E-commerce"];
+const words = ["Villa", "Hotel", "Guesthouse", "Penginapan", "Homestay"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -82,5 +82,98 @@ function type() {
     setTimeout(type, typeSpeed);
 }
 
+// Logika Hero Carousel Slider
+function initCarousel() {
+    const carousel = document.getElementById('hero-carousel');
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    const showSlide = (index) => {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.remove('opacity-0', 'pointer-events-none');
+                slide.classList.add('opacity-100', 'z-10');
+            } else {
+                slide.classList.remove('opacity-100', 'z-10');
+                slide.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.remove('bg-white/40', 'w-2');
+                dot.classList.add('bg-white', 'w-4');
+            } else {
+                dot.classList.remove('bg-white', 'w-4');
+                dot.classList.add('bg-white/40', 'w-2');
+            }
+        });
+
+        currentSlide = index;
+    };
+
+    const nextSlide = () => {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    };
+
+    const prevSlide = () => {
+        let prev = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prev);
+    };
+
+    const startAutoPlay = () => {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 800); // Ganti slide setiap 0.8 detik
+    };
+
+    const stopAutoPlay = () => {
+        clearInterval(slideInterval);
+    };
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextSlide();
+            startAutoPlay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevSlide();
+            startAutoPlay();
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showSlide(index);
+            startAutoPlay();
+        });
+    });
+
+    // Mulai auto play
+    startAutoPlay();
+
+    // Pause auto play ketika mouse di atas carousel
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+
+    // Set slide awal
+    showSlide(0);
+}
+
 // Jalankan fungsi saat halaman dimuat
-document.addEventListener('DOMContentLoaded', type);
+document.addEventListener('DOMContentLoaded', () => {
+    type();
+    initCarousel();
+});
