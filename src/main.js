@@ -223,10 +223,41 @@ function initPortfolioCarousel() {
     startAutoplay();
 }
 
+// Logika Tab pricing (Booking vs Bisnis Lainnya)
+function initPricingTabs() {
+    const tabBooking = document.getElementById('tab-booking');
+    const tabBusiness = document.getElementById('tab-business');
+    const gridBooking = document.getElementById('grid-booking');
+    const gridBusiness = document.getElementById('grid-business');
+
+    if (!tabBooking || !tabBusiness || !gridBooking || !gridBusiness) return;
+
+    tabBooking.addEventListener('click', () => {
+        // Toggle Active Button Styles
+        tabBooking.className = 'px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-gradient-custom text-white shadow-md';
+        tabBusiness.className = 'px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-primary/80 hover:text-white';
+
+        // Toggle Grid Visibility
+        gridBooking.classList.remove('hidden');
+        gridBusiness.classList.add('hidden');
+    });
+
+    tabBusiness.addEventListener('click', () => {
+        // Toggle Active Button Styles
+        tabBusiness.className = 'px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-gradient-custom text-white shadow-md';
+        tabBooking.className = 'px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-primary/80 hover:text-white';
+
+        // Toggle Grid Visibility
+        gridBusiness.classList.remove('hidden');
+        gridBooking.classList.add('hidden');
+    });
+}
+
 // Jalankan fungsi saat halaman dimuat
 document.addEventListener('DOMContentLoaded', async () => {
     await loadLayouts();
     type();
     initCarousel();
     initPortfolioCarousel();
+    initPricingTabs();
 });
