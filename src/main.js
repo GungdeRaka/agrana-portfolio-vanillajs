@@ -131,9 +131,102 @@ function initCarousel() {
     showSlide(0);
 }
 
+// Logika Portfolio Carousel (Main & Small states dengan pergeseran posisi kiri-ke-kanan berulang)
+function initPortfolioCarousel() {
+    const track = document.getElementById('portfolio-track');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.portfolio-card');
+    const displayTitle = document.getElementById('portfolio-display-title');
+    const displayDesc = document.getElementById('portfolio-display-desc');
+    
+    // Portfolio Data
+    const portfolioData = [
+        {
+            title: "Kuda Putih Pandawa",
+            desc: "Website booking mandiri untuk Guesthouse di Bali. Pengunjung dapat melakukan reservasi kamar secara langsung dan diarahkan ke WhatsApp Admin. Bebas dari potongan biaya komisi OTA."
+        },
+        {
+            title: "MARI Stitch & Garment",
+            desc: "Website Company Profile dengan fitur Bilingual (Multi-Bahasa) untuk produsen garmen ekspor internasional. Menampilkan portofolio pengerjaan dan galeri produk premium, terintegrasi dengan formulir inquiry klien luar negeri."
+        },
+        {
+            title: "Sistem Inventaris Sekolah",
+            desc: "Solusi digital custom untuk menggantikan pencatatan inventaris manual (buku tulis). Sistem informasi ini sukses mengurangi risiko kehilangan data dan barang, serta mencatat setiap riwayat peminjaman aset secara real-time."
+        }
+    ];
+
+    // Petakan ke 6 posisi untuk 6 kartu
+    const positionClasses = ['pos-out-left', 'pos-left', 'pos-middle', 'pos-right', 'pos-out-right', 'pos-out-right'];
+    let currentStep = 0; // 0 sampai 5
+    let autoplayInterval;
+
+    const updateCarousel = (step) => {
+        currentStep = (step + 6) % 6;
+
+        cards.forEach((card, i) => {
+            // Hapus kelas posisi sebelumnya
+            card.classList.remove('pos-out-left', 'pos-left', 'pos-middle', 'pos-right', 'pos-out-right');
+
+            // Hitung indeks posisi berdasarkan langkah s
+            const posIndex = (i + currentStep) % 6;
+            card.classList.add(positionClasses[posIndex]);
+
+            // Jika posisinya pos-right (indeks 3), kartu ini menjadi Main Card dan teksnya di-update
+            if (posIndex === 3) {
+                const dataIndex = i % 3;
+                if (displayTitle && displayDesc) {
+                    displayTitle.style.opacity = '0';
+                    displayDesc.style.opacity = '0';
+
+                    setTimeout(() => {
+                        displayTitle.textContent = portfolioData[dataIndex].title;
+                        displayDesc.textContent = portfolioData[dataIndex].desc;
+                        displayTitle.style.opacity = '1';
+                        displayDesc.style.opacity = '1';
+                    }, 300);
+                }
+            }
+        });
+    };
+
+    const nextPortfolio = () => {
+        // Pindah ke langkah berikutnya untuk menggeser kartu dari kiri ke kanan
+        updateCarousel(currentStep + 1);
+    };
+
+    const startAutoplay = () => {
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(nextPortfolio, 5000); // ganti setiap 5 detik
+    };
+
+    const stopAutoplay = () => {
+        clearInterval(autoplayInterval);
+    };
+
+    // Ketika sebuah kartu di-klik, pindah ke langkah yang menempatkan kartu tersebut di pos-right
+    cards.forEach((card, i) => {
+        card.addEventListener('click', () => {
+            const targetStep = (3 - i + 6) % 6;
+            updateCarousel(targetStep);
+            startAutoplay(); // Reset timer autoplay
+        });
+    });
+
+    // Pause autoplay saat hover pada container carousel
+    const container = track.parentElement;
+    container.addEventListener('mouseenter', stopAutoplay);
+    container.addEventListener('mouseleave', startAutoplay);
+
+    // Set awal
+    updateCarousel(0);
+    startAutoplay();
+}
+
 // Jalankan fungsi saat halaman dimuat
 document.addEventListener('DOMContentLoaded', async () => {
     await loadLayouts();
     type();
     initCarousel();
+    initPortfolioCarousel();
 });

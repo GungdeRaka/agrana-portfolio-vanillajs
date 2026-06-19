@@ -19,11 +19,16 @@ export default {
       animation: {
         'float': 'float 6s ease-in-out infinite', // Animasi gambar naik turun
         'pulse-slow': 'pulse 4s cubic-bezier(1.4, 1, 1.6, 2) infinite', // Animasi shadow berkedip pelan
+        'scroll-ltr': 'scroll-ltr 20s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0) rotate(15deg)' }, // Pastikan rotasi tetap ada
           '50%': { transform: 'translateY(-20px) rotate(15deg)' }, // Bergerak ke atas 20px
+        },
+        'scroll-ltr': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
         }
       }
     },

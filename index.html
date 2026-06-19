@@ -113,58 +113,104 @@
 
 <!-- End Home -->
 
-<section id="portfolio" class="py-10 px-4 max-w-7xl mx-auto text-center">
-    <h3 class="text-accent2 font-semibold tracking-wide uppercase mb-2">Karya Kami</h3>
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Proyek Pilihan & Solusi Digital</h2>
-    <p class="text-primary/70 max-w-3xl mx-auto mb-12 text-sm md:text-base">
-      Fokus utama kami adalah sebagai penyedia layanan <strong>Jasa Pembuatan Website Booking & Sistem Reservasi Mandiri</strong> untuk Villa, Homestay, Guest House, dan Hotel. Namun, kami juga berpengalaman dalam merancang Website Company Profile eksklusif serta Sistem Custom untuk efisiensi operasional bisnis Anda.
-    </p>
+  <section id="portfolio" class="py-20 px-4 max-w-7xl mx-auto overflow-hidden">
+    <!-- Section Header (Top, Centered) -->
+    <div class="text-center mb-12">
+      <h3 class="text-accent2 font-semibold tracking-wide uppercase mb-2">Karya Kami</h3>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Proyek Pilihan & Solusi Digital</h2>
+      <p class="text-primary/70 max-w-3xl mx-auto text-sm md:text-base">
+        Fokus utama kami adalah sebagai penyedia layanan <strong>Jasa Pembuatan Website Booking & Sistem Reservasi Mandiri</strong> untuk Villa, Homestay, Guest House, dan Hotel. Namun, kami juga berpengalaman dalam merancang Website Company Profile eksklusif serta Sistem Custom untuk efisiensi operasional bisnis Anda.
+      </p>
+    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-      <!-- Card 1: Guesthouse Booking Website -->
-      <div class="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 shadow-sm shadow-accent2/50  hover:shadow-lg hover:shadow-accent2">
-        <img src="src/assets/images/portfolio-website-booking-villa.png" alt="Website Booking Kuda Putih Pandawa Guesthouse"
-          class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
-        <div class="p-6">
-          <div class="flex justify-between items-start mb-2">
-            <h4 class="text-lg font-bold text-white">Kuda Putih Pandawa</h4>
-             <span class="text-xs text-[#3b82f6] border border-[#3b82f6] px-2 py-1 rounded">WordPress</span>
+    <!-- Split Layout (Carousel + Active Info) -->
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      
+      <!-- Left Side: Animated Carousel (65%) -->
+      <div class="w-full lg:w-[65%] lg:max-w-[65%] min-w-0 overflow-hidden relative -mx-4 lg:mx-0">
+        <div id="portfolio-track" class="relative py-6">
+          
+          <!-- Card 0 -->
+          <div data-index="0" class="portfolio-card cursor-pointer group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-sm transition-all duration-500 ease-in-out shrink-0 flex flex-col">
+            <img src="src/assets/images/portfolio-website-booking-villa.png" alt="Kuda Putih Pandawa" class="w-full h-full object-cover absolute inset-0 z-0 transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/40 to-transparent z-10"></div>
+            <div class="relative z-20 p-5 flex flex-col justify-end h-full w-full">
+              <span class="card-badge text-[10px] text-[#3b82f6] border border-[#3b82f6] px-2 py-0.5 rounded self-start mb-2 bg-darkbg/50">WordPress</span>
+              <h4 class="card-title font-bold text-white mb-1">Kuda Putih Pandawa</h4>
+              <p class="card-desc text-xs text-primary/70 line-clamp-3">Website booking mandiri untuk guesthouse.</p>
+            </div>
           </div>
-          <p class="text-sm text-primary/70">
-            Website booking mandiri untuk <strong>Guesthouse</strong>. Pengunjung dapat melakukan reservasi kamar secara langsung dan diarahkan ke WhatsApp Admin. Dengan sistem ini, guesthouse dapat mandiri dan <strong>bebas dari potongan biaya komisi OTA</strong>.
-          </p>
+
+          <!-- Card 1 -->
+          <div data-index="1" class="portfolio-card cursor-pointer group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-sm transition-all duration-500 ease-in-out shrink-0 flex flex-col">
+            <img src="src/assets/images/portfolio-website-garment-manufaktur.png" alt="MARI Stitch & Garment" class="w-full h-full object-cover absolute inset-0 z-0 transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/40 to-transparent z-10"></div>
+            <div class="relative z-20 p-5 flex flex-col justify-end h-full w-full">
+              <span class="card-badge text-[10px] text-[#3b82f6] border border-[#3b82f6] px-2 py-0.5 rounded self-start mb-2 bg-darkbg/50">WordPress</span>
+              <h4 class="card-title font-bold text-white mb-1">MARI Stitch & Garment</h4>
+              <p class="card-desc text-xs text-primary/70 line-clamp-3">Website Company Profile Bilingual untuk produsen garmen.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div data-index="2" class="portfolio-card cursor-pointer group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-sm transition-all duration-500 ease-in-out shrink-0 flex flex-col">
+            <img src="src/assets/images/portfolio-website-manajemen-inventaris.png" alt="Sistem Inventaris Sekolah" class="w-full h-full object-cover absolute inset-0 z-0 transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/40 to-transparent z-10"></div>
+            <div class="relative z-20 p-5 flex flex-col justify-end h-full w-full">
+              <span class="card-badge text-[10px] text-orange-400 border border-orange-400 px-2 py-0.5 rounded self-start mb-2 bg-darkbg/50">Custom Web</span>
+              <h4 class="card-title font-bold text-white mb-1">Sistem Inventaris Sekolah</h4>
+              <p class="card-desc text-xs text-primary/70 line-clamp-3">Solusi digital untuk pencatatan inventaris sekolah secara real-time.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 (Duplicate) -->
+          <div data-index="3" class="portfolio-card cursor-pointer group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-sm transition-all duration-500 ease-in-out shrink-0 flex flex-col">
+            <img src="src/assets/images/portfolio-website-booking-villa.png" alt="Kuda Putih Pandawa" class="w-full h-full object-cover absolute inset-0 z-0 transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/40 to-transparent z-10"></div>
+            <div class="relative z-20 p-5 flex flex-col justify-end h-full w-full">
+              <span class="card-badge text-[10px] text-[#3b82f6] border border-[#3b82f6] px-2 py-0.5 rounded self-start mb-2 bg-darkbg/50">WordPress</span>
+              <h4 class="card-title font-bold text-white mb-1">Kuda Putih Pandawa</h4>
+              <p class="card-desc text-xs text-primary/70 line-clamp-3">Website booking mandiri untuk guesthouse.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 (Duplicate) -->
+          <div data-index="4" class="portfolio-card cursor-pointer group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-sm transition-all duration-500 ease-in-out shrink-0 flex flex-col">
+            <img src="src/assets/images/portfolio-website-garment-manufaktur.png" alt="MARI Stitch & Garment" class="w-full h-full object-cover absolute inset-0 z-0 transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/40 to-transparent z-10"></div>
+            <div class="relative z-20 p-5 flex flex-col justify-end h-full w-full">
+              <span class="card-badge text-[10px] text-[#3b82f6] border border-[#3b82f6] px-2 py-0.5 rounded self-start mb-2 bg-darkbg/50">WordPress</span>
+              <h4 class="card-title font-bold text-white mb-1">MARI Stitch & Garment</h4>
+              <p class="card-desc text-xs text-primary/70 line-clamp-3">Website Company Profile Bilingual untuk produsen garmen.</p>
+            </div>
+          </div>
+
+          <!-- Card 5 (Duplicate) -->
+          <div data-index="5" class="portfolio-card cursor-pointer group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-sm transition-all duration-500 ease-in-out shrink-0 flex flex-col">
+            <img src="src/assets/images/portfolio-website-manajemen-inventaris.png" alt="Sistem Inventaris Sekolah" class="w-full h-full object-cover absolute inset-0 z-0 transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/40 to-transparent z-10"></div>
+            <div class="relative z-20 p-5 flex flex-col justify-end h-full w-full">
+              <span class="card-badge text-[10px] text-orange-400 border border-orange-400 px-2 py-0.5 rounded self-start mb-2 bg-darkbg/50">Custom Web</span>
+              <h4 class="card-title font-bold text-white mb-1">Sistem Inventaris Sekolah</h4>
+              <p class="card-desc text-xs text-primary/70 line-clamp-3">Solusi digital untuk pencatatan inventaris sekolah secara real-time.</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Card 2: Company Profile Garment Manufacturer -->
-      <div class="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 shadow-sm shadow-accent2/50  hover:shadow-lg hover:shadow-accent2">
-        <img src="src/assets/images/portfolio-website-garment-manufaktur.png" alt="Website MARI Stitch & Garment Company Profile"
-          class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
-        <div class="p-6">
-          <div class="flex justify-between items-start mb-2">
-            <h4 class="text-lg font-bold text-white">MARI Stitch & Garment</h4>
-            <span class="text-xs text-[#3b82f6] border border-[#3b82f6] px-2 py-1 rounded">WordPress</span>
-          </div>
-          <p class="text-sm text-primary/70">
-            Website Company Profile dengan fitur <strong>Bilingual (Multi-Bahasa)</strong> untuk produsen garmen internasional. Menampilkan portofolio pengerjaan dan galeri produk premium, serta diintegrasikan dengan formulir email untuk menangani pesanan (production inquiry) klien luar negeri.
-          </p>
-        </div>
+      <!-- Right Side: Active Project Display (35%) -->
+      <div class="w-full lg:w-[35%] lg:max-w-[35%] min-w-0 lg:text-right text-center min-h-[300px] flex flex-col justify-center lg:items-end items-center">
+        <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Detail Proyek</h3>
+        <h2 id="portfolio-display-title" class="text-2xl md:text-3xl font-bold text-white mb-4 transition-all duration-300">Proyek Pilihan</h2>
+        <p id="portfolio-display-desc" class="text-primary/70 text-sm md:text-base mb-6 transition-all duration-300">
+          Fokus utama kami adalah sebagai penyedia layanan Jasa Pembuatan Website Booking & Sistem Reservasi Mandiri.
+        </p>
+        <a id="portfolio-display-link" href="#contact" class="bg-gradient-custom text-white px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition shadow-lg text-sm inline-block">
+          Konsultasi Project
+        </a>
       </div>
 
-      <!-- Card 3: Inventory Management Website -->
-      <div class="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 shadow-sm shadow-accent2/50 hover:shadow-lg hover:shadow-accent2">
-        <img src="src/assets/images/portfolio-website-manajemen-inventaris.png" alt="Sistem Manajemen Inventaris Sekolah"
-          class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
-        <div class="p-6">
-          <div class="flex justify-between items-start mb-2">
-            <h4 class="text-lg font-bold text-white">Sistem Inventaris Sekolah</h4>
-            <span class="text-xs text-orange-400 border border-orange-400 px-2 py-1 rounded">Custom Web</span>
-          </div>
-          <p class="text-sm text-primary/70">
-            Solusi digital untuk menggantikan pencatatan inventaris manual (buku tulis). Sistem informasi ini sukses <strong>mengurangi risiko kehilangan data dan barang</strong>, serta mencatat setiap riwayat peminjaman dan pengembalian aset sekolah secara real-time.
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 

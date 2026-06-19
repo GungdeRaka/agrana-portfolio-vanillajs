@@ -1,3 +1,9 @@
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,4 +17,148 @@
   .bg-gradient-custom {
     background: linear-gradient(to right, #5465FF, #480CA8);
   }
+}
+
+/* Container for the carousel cards */
+#portfolio-track {
+  position: relative;
+  height: 60vh; /* mobile height: 60% of screen height */
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  #portfolio-track {
+    height: 440px; /* desktop height + margins */
+  }
+}
+
+/* Card states for Portfolio Carousel */
+.portfolio-card {
+  position: absolute;
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: left, top, width, height, opacity, transform;
+}
+
+/* Offscreen Left */
+.portfolio-card.pos-out-left {
+  left: -35vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20vw;
+  height: 30vh;
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Position 1: Leftmost (small card) */
+.portfolio-card.pos-left {
+  left: -10vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20vw;
+  height: 30vh;
+  opacity: 0.45;
+  z-index: 10;
+}
+
+/* Position 2: Middle (small card) */
+.portfolio-card.pos-middle {
+  left: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20vw;
+  height: 30vh;
+  opacity: 0.45;
+  z-index: 20;
+}
+
+/* Position 3: Rightmost (main card) */
+.portfolio-card.pos-right {
+  left: 20vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60vw;
+  height: 55vh;
+  opacity: 1;
+  z-index: 30;
+  box-shadow: 0 10px 20px -5px rgba(84, 101, 255, 0.4);
+}
+
+/* Offscreen Right */
+.portfolio-card.pos-out-right {
+  left: 100vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20vw;
+  height: 30vh;
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Desktop absolute positions */
+@media (min-width: 1024px) {
+  .portfolio-card.pos-out-left {
+    left: -170px;
+    width: 150px;
+    height: 190px;
+  }
+  .portfolio-card.pos-left {
+    left: 0;
+    width: 150px;
+    height: 190px;
+  }
+  .portfolio-card.pos-middle {
+    left: 165px; /* 150px + 15px gap */
+    width: 150px;
+    height: 190px;
+  }
+  .portfolio-card.pos-right {
+    left: 330px; /* 165px + 150px + 15px gap */
+    width: 280px;
+    height: 380px;
+    box-shadow: 0 20px 40px -10px rgba(84, 101, 255, 0.45);
+  }
+  .portfolio-card.pos-out-right {
+    left: 630px;
+    width: 150px;
+    height: 190px;
+  }
+}
+
+.portfolio-card .card-desc {
+  display: none !important;
+}
+
+.portfolio-card .card-badge {
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.portfolio-card.pos-right .card-badge {
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+}
+
+.portfolio-card .card-title {
+  font-size: 0.75rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.portfolio-card.pos-right .card-title {
+  font-size: 1.125rem;
+  transition: all 0.6s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card.pos-right .card-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Gradient fade mask on the edges of the carousel container */
+.carousel-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
